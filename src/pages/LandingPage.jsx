@@ -1,12 +1,14 @@
 import React from 'react'
+import FeatureSection from '../components/FeatureSection'
 
 const LandingPage = () => {
   return (
-    <div className='bg-blue-500'>
+    <div className=''>
         {/* create different components or sections in componentsfolder and reneder here */}
         {/* just like navbar,header,footer,about,features,faq, etc  */}
         {/* do not directly write the code of any section here */}
-        MineSahayak
+        
+        <FeatureSection/>
     </div>
   )
 }
