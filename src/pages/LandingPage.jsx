@@ -1,14 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Herosection from '../components/Herosection';
 
 const LandingPage = () => {
   return (
-    <div className='bg-blue-500'>
-        {/* create different components or sections in componentsfolder and reneder here */}
-        {/* just like navbar,header,footer,about,features,faq, etc  */}
-        {/* do not directly write the code of any section here */}
-        MineSahayak
-    </div>
-  )
-}
+    <div>
+      {/* Create different components or sections in the components folder and render them here */}
+      {/* Just like navbar, header, footer, about, features, faq, etc */}
+      {/* Do not directly write the code of any section here */}
+      {/* MineSahayak */}
+      <div className=''>
 
-export default LandingPage
+      <Herosection />
+      </div>
+    </div>
+  );
+};
+export default LandingPage;
