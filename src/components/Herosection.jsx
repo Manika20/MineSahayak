@@ -12,7 +12,7 @@ const Herosection = () => {
       {/* button div   */}
       <div className='text-center md:text-start flex flex-col justify-center md:flex-row md:justify-between items-center gap-y-4 md:gap-x-4 p-4 md:px-6 md:border md:border-1  md:border-indigo-400 md:mt-8 rounded-full'>
         {/* headline */}
-            <p className='text-sm text-transparent text-gray-400 font-semibold md:text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, nobis?</p>
+            <p className='text-sm  text-gray-400 font-semibold md:text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, nobis?</p>
          {/* butto */}
          <button className="btn hover:scale-95 transition-all duration-100 font-extrabold text-base/snug tracking-tight btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600">Get Started!</button>         
       </div>
