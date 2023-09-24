@@ -1,5 +1,8 @@
 body{
-    font-family: 'Limelight', cursive;
+    /* font-family: 'Limelight', cursive; */
 
-    background-color: rgb(209, 207, 207);
+    /* background-color: rgb(209, 207, 207); */
+}
+.headingText{
+    font-family: 'Limelight', cursive;
 }
