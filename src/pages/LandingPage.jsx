@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Herosection from '../components/Herosection';
 
@@ -9,6 +10,7 @@ const LandingPage = () => {
       {/* Do not directly write the code of any section here */}
       {/* MineSahayak */}
       <div className=''>
+
 
       <Herosection />
       </div>
