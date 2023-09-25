@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Authcomp from '../components/Authcomp'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/helper/SupabaseClient'
 
 const AuthPage = () => {
     const navigate=useNavigate()
-    const {data}=supabase.auth.getSession()
-    if(data){
-        navigate('/dashboard')
-    }
+    useEffect(()=>{
+        async function fetchUser(){
+        const { data: { user } } =  await supabase.auth.getUser()
+        if(user) navigate('/dashboard')
+        }
+        fetchUser()
+    },[])
+   
   return (
     <div>
         <Authcomp/>
