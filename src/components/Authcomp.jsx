@@ -4,32 +4,49 @@ import { supabase } from '../lib/helper/SupabaseClient';
 import { useNavigate } from 'react-router-dom';
 const Authcomp = () => {
     const [num,setNum]=useState('')
+    const [otpVal,setOtpVal]=useState('')
+    const [otp,setOtp]=useState(false)
     // console.log(num)
     const navigate=useNavigate()
-    const signInWithGoogle=async(e)=>{
-        e.preventDefault()
-        try{
-            const {data,err}=await supabase.auth.signInWithOAuth({
-                provider:'google',
-                options: {
-                    queryParams: {
-                      access_type: 'offline',
-                      prompt: 'consent',
-                    },
-                  },
-                // redirectTo: 'http://localhost:3000/dashboard',
-            })
-            if(err){
-                throw new Error('Oops! Error logging in!')
-            }
-            else{
-                navigate('/dashboard')
-            }
-        }catch(err){
-            alert(err)
-        }
-        
+    const generateOtp=async()=>{
+        if(num.length !== 10){ 
+            alert('Please enter a correct phone number.')
+            setNum('')
+            return ;
     }
+        let { user, error } = await supabase.auth.signInWithOtp({
+            phone: `+91${num}`,
+          })
+        //   setNum('')
+          setOtp(true)
+    }
+    const checkOtp=async()=>{
+        let { session, error } = await supabase.auth.verifyOtp({
+            phone: `+91${num}`,
+            token: otpVal,
+            type: 'sms',
+          })
+          console.log(session)
+          if(session?.access_token)navigate('/dashboard')
+    }
+    // const signInWithGoogle=async(e)=>{
+    //     e.preventDefault()
+    //     try{
+            
+    //         supabase.auth.signInWithOAuth({
+    //             provider: 'google',
+    //             options: {
+    //             queryParams: {
+    //               access_type: 'offline',
+    //               prompt: 'consent',
+    //             },
+    //       },
+    //       })
+    //     }catch(err){
+    //         alert(err)
+    //     }   
+    // }
+    console.log(otpVal)
   return (
     <div className='bg-gradient-to-b from-indigo-950 pt-48 to-black h-screen md:h-92'>
         <div className=''>
@@ -37,15 +54,23 @@ const Authcomp = () => {
             {/* phone number  */}
             <div className='text-center rounded-xl p-4 flex flex-col items-center justify-center '>
             <h3 className='font-bold text-4xl/snug tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800'>Login with Phone Number</h3>
-            <input onChange={(e)=>setNum(e.target.value)} type="text" placeholder='Please enter your phone number.' className='border-b-1 bg-inherit mt-4 w-[90%] p-2 ml-8 focus:border-none focus:outline-none cursor-pointer text-xl text-white' />
-            <button className="btn w-[60%] hover:scale-95 transition-all duration-100 font-bold mt-4 text-base tracking-wide btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 rounded-">Get OTP <Zap className='text-white' fill='white'/></button>
+          {!otp ? 
+          <input onChange={(e)=>setNum(e.target.value)} value={num} name='num' type="text" placeholder={`Please enter your phone number.`} className='border-b-1 bg-inherit mt-4 w-[90%] p-2 ml-8 focus:border-none focus:outline-none cursor-pointer text-xl text-white' /> : <input onChange={(e)=>setOtpVal(e.target.value)} value={otpVal} name='otpVal' type="text" placeholder={`Please enter your otp.`} className='border-b-1 bg-inherit mt-4 w-[90%] p-2 ml-8 focus:border-none focus:outline-none cursor-pointer text-xl text-white' /> }
+           {otp ? (
+              <button onClick={checkOtp} className="btn w-[60%] hover:scale-95 transition-all duration-100 font-bold mt-4 text-base tracking-wide btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 rounded-">
+              Enter OTP <Zap className='text-white' fill='white'/></button>
+           ): 
+           (
+           <button onClick={generateOtp} className="btn w-[60%] hover:scale-95 transition-all duration-100 font-bold mt-4 text-base tracking-wide btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 rounded-">
+            Get OTP <Zap className='text-white' fill='white'/></button>)
+            }
             </div>
             {/* google */}
-            <h1 className='text-white font-extrabold text-2xl'>OR</h1>
-            <button onClick={signInWithGoogle} className="btn  hover:scale-95 transition-all duration-100 font-bold mt-4 text-base tracking-wide btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 rounded-">
+            {!otp && (<><h1 className='text-white font-extrabold text-2xl'>OR</h1>
+            <button  className="btn  hover:scale-95 transition-all duration-100 font-bold mt-4 text-base tracking-wide btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 rounded-">
                 Login with Google
                 <Zap className='text-white' fill='white'/>
-            </button>
+            </button></>)}
         </div>
         </div>
     </div>
