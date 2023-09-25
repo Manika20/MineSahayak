@@ -1,19 +1,16 @@
 import React from 'react'
-import Authcomp from '../components/Authcomp'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/helper/SupabaseClient'
 
-const AuthPage = () => {
+const Dashboard = () => {
     const navigate=useNavigate()
     const {data}=supabase.auth.getSession()
-    if(data){
-        navigate('/dashboard')
+    if(!data){
+        navigate('/auth')
     }
   return (
-    <div>
-        <Authcomp/>
-    </div>
+    <div>Dashboard</div>
   )
 }
 
-export default AuthPage
+export default Dashboard

@@ -3,7 +3,9 @@ import VideoLogo from '../assets/Videoicon.png'
 import Navbar from './Navbar';
 import TypewriterComponent from 'typewriter-effect';
 import { Link } from 'react-router-dom';
+import { supabase } from '../lib/helper/SupabaseClient';
 const Herosection = () => {
+  const {data}=supabase.auth.getSession()
   return (
     <div className='bg-gradient-to-b from-indigo-950 to-black h-screen md:h-92'>
       <Navbar/>
@@ -28,7 +30,7 @@ const Herosection = () => {
         {/* </div> */}
             <p className='text-sm  text-gray-400 font-semibold md:text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, nobis?</p>
          {/* butto */}
-         <Link to={'/auth'}>
+         <Link to={`${data?'/dashboard':'/auth'}`}>
          <button className="btn hover:scale-95 transition-all duration-100 font-extrabold text-base/snug tracking-tight btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 rounded-3xl">Get Started!</button>         
          </Link>
       </div>

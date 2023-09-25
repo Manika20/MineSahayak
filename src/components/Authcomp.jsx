@@ -1,8 +1,35 @@
 import React, { useState } from 'react'
 import { Zap } from 'lucide-react';
+import { supabase } from '../lib/helper/SupabaseClient';
+import { useNavigate } from 'react-router-dom';
 const Authcomp = () => {
     const [num,setNum]=useState('')
-    console.log(num)
+    // console.log(num)
+    const navigate=useNavigate()
+    const signInWithGoogle=async(e)=>{
+        e.preventDefault()
+        try{
+            const {data,err}=await supabase.auth.signInWithOAuth({
+                provider:'google',
+                options: {
+                    queryParams: {
+                      access_type: 'offline',
+                      prompt: 'consent',
+                    },
+                  },
+                // redirectTo: 'http://localhost:3000/dashboard',
+            })
+            if(err){
+                throw new Error('Oops! Error logging in!')
+            }
+            else{
+                navigate('/dashboard')
+            }
+        }catch(err){
+            alert(err)
+        }
+        
+    }
   return (
     <div className='bg-gradient-to-b from-indigo-950 pt-48 to-black h-screen md:h-92'>
         <div className=''>
@@ -15,7 +42,7 @@ const Authcomp = () => {
             </div>
             {/* google */}
             <h1 className='text-white font-extrabold text-2xl'>OR</h1>
-            <button className="btn  hover:scale-95 transition-all duration-100 font-bold mt-4 text-base tracking-wide btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 rounded-">
+            <button onClick={signInWithGoogle} className="btn  hover:scale-95 transition-all duration-100 font-bold mt-4 text-base tracking-wide btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 rounded-">
                 Login with Google
                 <Zap className='text-white' fill='white'/>
             </button>
