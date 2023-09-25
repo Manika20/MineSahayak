@@ -2,6 +2,7 @@ import React from 'react';
 import VideoLogo from '../assets/Videoicon.png'
 import Navbar from './Navbar';
 import TypewriterComponent from 'typewriter-effect';
+import { Link } from 'react-router-dom';
 const Herosection = () => {
   return (
     <div className='bg-gradient-to-b from-indigo-950 to-black h-screen md:h-92'>
@@ -27,7 +28,9 @@ const Herosection = () => {
         {/* </div> */}
             <p className='text-sm  text-gray-400 font-semibold md:text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, nobis?</p>
          {/* butto */}
+         <Link to={'/auth'}>
          <button className="btn hover:scale-95 transition-all duration-100 font-extrabold text-base/snug tracking-tight btn-primary bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 rounded-3xl">Get Started!</button>         
+         </Link>
       </div>
       {/* watch video icon  */}
       <div className='flex justify-between gap-x-4 items-center md:mt-10 lg:mt-16 '>
