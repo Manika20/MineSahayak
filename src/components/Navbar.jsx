@@ -6,7 +6,7 @@ const Navbar = () => {
         {/* logo  */}
         <div></div>
         {/* button  */}
-        <button className="btn hover:scale-95 transition-all duration-100 font-extrabold text-base/snug tracking-tight btn-primary bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">Dive In</button>
+        <button className="btn hover:scale-95 transition-all duration-100 font-extrabold text-base/snug tracking-tight btn-primary bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-3xl">Dive In</button>
     </div>
   )
 }

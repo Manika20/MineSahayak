@@ -22,14 +22,7 @@ export const featureData=[
         heading:'heading',
         subHeading:'sub heading',
         desc:'desc',
-        flag:false,
-    },
-    {
-        id:4,
-        value:'1',
-        heading:'heading',
-        subHeading:'sub heading',
-        desc:'desc',
         flag:true,
-    }
+    },
+  
 ]
