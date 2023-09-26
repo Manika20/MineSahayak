@@ -43,9 +43,9 @@ const Herosection = () => {
       </div>
       {/* watch video icon  */}
       <div className='flex justify-between gap-x-4 items-center md:mt-10 lg:mt-16 '>
-        <img src={VideoLogo} alt="" className='w-8 h-8' />
-        <a href="#" target='_blank'>
-          <p className='text-lg/snug tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-400 to-gray-300 capitalize font-bold'>Watch tutorial </p>
+          <img src={VideoLogo} alt="" className='w-8 h-8' />
+          <a href="#" target='_blank'>
+            <p className='text-lg/snug tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-gray-400 to-gray-300 capitalize font-bold'>Watch tutorial </p>
           </a>
       </div>
       {/* learn more  */}
