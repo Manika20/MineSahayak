@@ -2,6 +2,7 @@
 import React from 'react';
 import Herosection from '../components/Herosection';
 import FeatureSection from '../components/FeatureSection';
+import Faqs from '../components/Faqs';
 
 const LandingPage = () => {
   return (
@@ -13,6 +14,7 @@ const LandingPage = () => {
       <div className='flex flex-col'>
       <Herosection />
       <FeatureSection className=''/>
+      <Faqs/>
       </div>
     </div>
   );
