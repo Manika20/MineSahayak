@@ -40,7 +40,7 @@ const Authcomp = () => {
         const {data,err}=await supabase.auth.signInWithOAuth({
                 provider: 'google',
                 options:{
-                    redirectTo:`http://mine-sahayak.vercel.app/dashboard`,
+                    redirectTo:`http://localhost:3000/dashboard`,
                 }
         })
     }
