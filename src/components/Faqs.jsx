@@ -3,12 +3,12 @@ import React from 'react'
 
 const Faqs = () => {
     return (
-        <div className='bg-gradient-to-b from-indigo-950 to-black h-screen md:h-92 p-20 pt-40 '>
-            <div className='font-bold px-6 md:px-4 text-center text-lg/snug md:text-3xl/snug tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 mb-10'>
+        <div className='h-full  bg-gradient-to-b from-indigo-950 to-black  md:h-92 p-20 pt-40 '>
+            <div className=' font-bold px-6 md:px-4 text-center text-lg/snug md:text-3xl/snug tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 mb-10'>
                 FAQs
             </div>
             
-            <div className=''>
+            <div className='text-gray-400 space-y-4'>
             <div className="collapse bg-indigo-900/10 mb-2 ">
                 <input type="checkbox" /> 
                 <div className="collapse-title text-xl font-medium">

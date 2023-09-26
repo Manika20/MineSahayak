@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/helper/SupabaseClient";
-import { Zap } from "lucide-react";
+import { MessageSquare, Zap } from "lucide-react";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -29,20 +29,31 @@ const Dashboard = () => {
     {/* Sidebar */}
     <div className="bg-gray-800 w-1/4 p-4">
       <h2 className="text-white text-2xl mb-4">History</h2>
-      <ul className="text-white">
-        <li className="mb-2 border-gray-500 border-2 p-1">How to mine in Rainy area...</li>
-        <li className="mb-2 border-gray-500 border-2 p-1">Some hazards...</li>
-        <li className="mb-2 border-gray-500 border-2 p-1">Legal Tenders...</li>
+      <ul className="text-white rounded-xl">
+        <div className="flex gap-x-2 items-center justify-center">
+        <MessageSquare className="w-6 h-6"/> 
+        <li className="mb-2 border-b-1 p-1 line-clamp-1">How to mine in Rainy area...</li>
+        </div>
+
+        <div className="flex gap-x-2 items-center justify-center">
+        <MessageSquare className="w-6 h-6"/> 
+        <li className="mb-2 border-b-1 p-1 line-clamp-1">Some hazards...</li>
+        </div>
+
+        <div className="flex gap-x-2 items-center justify-center">
+        <MessageSquare className="w-6 h-6"/> 
+        <li className="mb-2 border-b-1 p-1 line-clamp-1">Legal Tenders...</li>
+        </div>
       
       </ul>
     </div>
     
     {/* Main Content */}
-    <div className="flex-1 flex flex-col items-center justify-between">
+    <div className="flex-1 flex flex-col items-center justify-between ml-3">
     <div className="flex justify-between w-full">
       <div></div>
-      <div className="text-5xl mt-5 text-cyan-500">Minesahayak Chatbot</div>
-      <div className="w-[40px] bg-red-300 rounded-full p-2 text-center mr-4"></div>
+      <div className="text-5xl mt-5 ttracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 font-bold">Minesahayak Chatbot</div>
+      <div className="w-[40px] bg-red-300 rounded-full text-center flex items-center justify-center mr-4 mt-6">U</div>
       </div>
       <div className="chat-container flex flex-col w-full ">
 
