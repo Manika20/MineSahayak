@@ -30,20 +30,21 @@ const Dashboard = () => {
     <div className="bg-gray-800 w-1/4 p-4">
       <h2 className="text-white text-2xl mb-4">History</h2>
       <ul className="text-white rounded-xl">
-        <div className="flex gap-x-2 items-center justify-center">
-        <MessageSquare className="w-6 h-6"/> 
-        <li className="mb-2 border-b-1 p-1 line-clamp-1">How to mine in Rainy area...</li>
-        </div>
+        
+    <li className="mb-2 border-b-1 p-1 line-clamp-1 flex gap-x-2 items-center justify-center">
+    <MessageSquare className="w-6 h-6"/> 
+    <span>How to mine in Rainy area...</span>
+    </li>
 
-        <div className="flex gap-x-2 items-center justify-center">
-        <MessageSquare className="w-6 h-6"/> 
-        <li className="mb-2 border-b-1 p-1 line-clamp-1">Some hazards...</li>
-        </div>
+    <li className="mb-2 border-b-1 p-1 line-clamp-1 flex gap-x-2 items-center justify-center"> 
+    <MessageSquare className="w-6 h-6"/> 
+    <span>Some hazards...</span>
+    </li>
 
-        <div className="flex gap-x-2 items-center justify-center">
-        <MessageSquare className="w-6 h-6"/> 
-        <li className="mb-2 border-b-1 p-1 line-clamp-1">Legal Tenders...</li>
-        </div>
+   
+      
+
+      
       
       </ul>
     </div>
